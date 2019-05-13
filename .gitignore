@@ -1,6 +1,9 @@
 # Arduino build output
 compile/*
 
+# Gerber files
+pcb/gerber/*
+
 # Backup files
 *.s#?
 *.b#?

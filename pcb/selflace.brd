@@ -3,7 +3,7 @@
 <eagle version="9.4.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="inch"/>
@@ -1416,7 +1416,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="9.398" y="42.418" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
 <attribute name="PROD_ID" value="XTAL-08218" x="9.398" y="44.196" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SF_ID" value="COM-00094" x="9.398" y="44.196" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="9.398" y="46.736" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
+<attribute name="VALUE" x="9.398" y="46.228" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
 <element name="J6" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="JST-2-PTH" package3d_urn="urn:adsk.eagle:package:38053/1" value="" x="17.526" y="10.16" smashed="yes" rot="R270">
 <attribute name="NAME" x="22.796" y="11.43" size="0.6096" layer="25" font="vector" ratio="20" rot="R270"/>
@@ -2275,6 +2275,15 @@ design rules under a new name.</description>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
+<errors>
+<approved hash="7,40,b0bb1b0eb5783e28"/>
+<approved hash="7,40,b0bb1b0eb5783e28"/>
+<approved hash="7,40,c9f70990d8c460bc"/>
+<approved hash="7,40,171f57ded7de971f"/>
+<approved hash="7,40,d86298a118a15862"/>
+<approved hash="7,40,e04db2bd4316e9c3"/>
+<approved hash="7,40,b0bb1b06b5042cd2"/>
+</errors>
 </board>
 </drawing>
 <compatibility>
