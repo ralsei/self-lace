@@ -5,11 +5,15 @@ const int FSR_F_PIN = A0; // the actual force sensor
 const int FSR_S_PIN = A1; // is there a shoe?
 const int POT_PIN = A2;   // change force
 
-const int SPEED_PIN = 3;    // hbridge enable
 const int MOTOR_1A_PIN = 5; // hbridge leg 1
 const int MOTOR_2A_PIN = 6; // hbridge leg 2
 const int RELEASE_PIN = 4;
 const int LIMIT_PIN = 7;
+
+const int LED_ON_PIN = 2;
+const int LED_STAT_PIN = 3;
+const int LED_FWD_PIN = 8;
+const int LED_BKW_PIN = 9;
 
 /// GLOBAL STATES
 bool output = false;
@@ -21,26 +25,25 @@ const int Kp = 1, Ki = 0, Kd = 0;
 double m_setpoint, m_input, m_output;
 AutoPID m_control{&m_input, &m_setpoint, &m_output, -255, 255, Kp, Ki, Kd};
 
-void motorCtrl_fwd() { // set motor controller to forward motion
-  digitalWrite(MOTOR_1A_PIN, LOW);
-  digitalWrite(MOTOR_2A_PIN, HIGH);
-}
-
-void motorCtrl_rev() { // set motor controller to reverse motion
-  digitalWrite(MOTOR_1A_PIN, HIGH);
-  digitalWrite(MOTOR_2A_PIN, LOW);
-}
-
 void motorCtrl_write(int val) { // set motor controller to given power
   if (val > 0) {
     analogWrite(MOTOR_1A_PIN, val);
     analogWrite(MOTOR_2A_PIN, 0);
+
+    digitalWrite(LED_FWD_PIN, HIGH);
+    digitalWrite(LED_BKW_PIN, LOW);
   } else if (val < 0) {
     analogWrite(MOTOR_2A_PIN, -val);
     analogWrite(MOTOR_1A_PIN, 0);
+
+    digitalWrite(LED_FWD_PIN, LOW);
+    digitalWrite(LED_BKW_PIN, HIGH);
   } else {
     analogWrite(MOTOR_1A_PIN, 0);
     analogWrite(MOTOR_2A_PIN, 0);
+
+    digitalWrite(LED_FWD_PIN, LOW);
+    digitalWrite(LED_BKW_PIN, LOW);
   }
 }
 
@@ -89,9 +92,13 @@ int pot_getSetpoint() {
 }
 
 void setup() {
-  pinMode(SPEED_PIN, OUTPUT);
   pinMode(MOTOR_1A_PIN, OUTPUT);
   pinMode(MOTOR_2A_PIN, OUTPUT);
+
+  pinMode(LED_ON_PIN, OUTPUT);
+  pinMode(LED_STAT_PIN, OUTPUT);
+  pinMode(LED_FWD_PIN, OUTPUT);
+  pinMode(LED_BKW_PIN, OUTPUT);
 
   m_input = fsr_getNewtons();
   m_setpoint = 15; // default
@@ -101,6 +108,8 @@ void setup() {
 }
 
 void loop() {
+  digitalWrite(LED_ON_PIN, HIGH);
+
   m_input = fsr_getAnalog();
   m_setpoint = pot_getAnalog();
 
