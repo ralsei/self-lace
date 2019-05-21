@@ -111,17 +111,17 @@ void loop() {
   digitalWrite(LED_ON_PIN, HIGH);
 
   m_input = fsr_getAnalog();
-  m_setpoint = pot_getAnalog();
+  if (wasPressed) {
+    m_setpoint = 0;
+  } else {
+    m_setpoint = pot_getAnalog();
+  }
 
   if (fsr_isDetected()) {
     output = true;
-  }
-  
+  } 
+
   if (digitalRead(RELEASE_PIN)) {
-    if (!wasPressed){
-      output = !output;
-      m_output = -255;
-    }
     wasPressed = true;
   } else {
     wasPressed = false;
