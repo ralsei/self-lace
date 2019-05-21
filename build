@@ -5,5 +5,5 @@ arduino-builder -fqbn archlinux-arduino:avr:uno -hardware /usr/share/arduino/har
                 -libraries /home/hazel/src/self-lace/lib -tools /usr/bin \
                 -build-path /home/hazel/src/self-lace/compile $1
 
-avrdude -V -F -C /etc/avrdude.conf -p atmega328p -P /dev/ttyACM0 -c arduino -b 115200 \
+avrdude -V -F -C /etc/avrdude.conf -p atmega328p -P /dev/ttyUSB0 -c arduino -b 115200 \
         -U flash:w:/home/hazel/src/self-lace/compile/${1##*/}.hex

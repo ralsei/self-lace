@@ -13397,26 +13397,26 @@ LED</description>
 </net>
 <net name="RX" class="0">
 <segment>
-<pinref part="J4" gate="G$1" pin="TXO"/>
-<wire x1="55.88" y1="129.54" x2="63.5" y2="129.54" width="0.1524" layer="91"/>
-<label x="58.42" y="129.54" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U1" gate="U$1" pin="PD0(RXD)"/>
 <wire x1="50.8" y1="7.62" x2="60.96" y2="7.62" width="0.1524" layer="91"/>
 <label x="55.88" y="7.62" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="TX" class="0">
 <segment>
 <pinref part="J4" gate="G$1" pin="RXI"/>
 <wire x1="55.88" y1="127" x2="63.5" y2="127" width="0.1524" layer="91"/>
 <label x="58.42" y="127" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="TX" class="0">
 <segment>
 <pinref part="U1" gate="U$1" pin="PD1(TXD)"/>
 <wire x1="50.8" y1="5.08" x2="60.96" y2="5.08" width="0.1524" layer="91"/>
 <label x="55.88" y="5.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="TXO"/>
+<wire x1="55.88" y1="129.54" x2="63.5" y2="129.54" width="0.1524" layer="91"/>
+<label x="58.42" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DTR" class="0">
